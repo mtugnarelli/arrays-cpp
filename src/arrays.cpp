@@ -15,30 +15,41 @@
 #define ALTO        8
 #define PROFUNDIDAD 4
 
-void inicializarLetras(char letras[COLUMNAS], char letra);
+/* Definición de nombres alternativos (también llamados sinónimos o alias) a los tipos de arrays
+ * para simplificar su uso */
 
-void inicializarMediciones(float mediciones[FILAS][COLUMNAS], float medicion);
+typedef char VectorDeLetras[COLUMNAS];
 
-void inicializarCoeficientes(int coeficientes[ANCHO][ALTO][PROFUNDIDAD], int coeficiente);
+typedef float MatrizDeMediciones[FILAS][COLUMNAS];
+
+typedef int CuboDeCoeficientes[ANCHO][ALTO][PROFUNDIDAD];
+
+
+void inicializarLetras(VectorDeLetras letras, char letra);
+
+void inicializarMediciones(MatrizDeMediciones mediciones, float medicion);
+
+void inicializarCoeficientes(CuboDeCoeficientes coeficientes, int coeficiente);
+
 
 int main() {
 
     /* arreglo unidimensional */
-    char letras[LONGITUD];
+    VectorDeLetras letras;
     inicializarLetras(letras, 'A');
 
     /* arreglo bidimensional */
-    float mediciones[FILAS][COLUMNAS];
+    MatrizDeMediciones mediciones;
     inicializarMediciones(mediciones, 0.0);
 
     /* arreglo de tridimensional */
-    int coeficientes[ANCHO][ALTO][PROFUNDIDAD];
+    CuboDeCoeficientes coeficientes;
     inicializarCoeficientes(coeficientes, 5);
 
     return 0;
 }
 
-void inicializarLetras(char letras[COLUMNAS], char letra) {
+void inicializarLetras(VectorDeLetras letras, char letra) {
 
     for (int posicion = 0; posicion < LONGITUD; posicion++) {
 
@@ -46,7 +57,7 @@ void inicializarLetras(char letras[COLUMNAS], char letra) {
     }
 }
 
-void inicializarMediciones(float mediciones[FILAS][COLUMNAS], float medicion) {
+void inicializarMediciones(MatrizDeMediciones mediciones, float medicion) {
 
     for (int fila = 0; fila < FILAS; fila++) {
 
@@ -57,7 +68,7 @@ void inicializarMediciones(float mediciones[FILAS][COLUMNAS], float medicion) {
     }
 }
 
-void inicializarCoeficientes(int coeficientes[ANCHO][ALTO][PROFUNDIDAD], int coeficiente) {
+void inicializarCoeficientes(CuboDeCoeficientes coeficientes, int coeficiente) {
 
     for (int x = 0; x < ANCHO; x++) {
 
